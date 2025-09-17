@@ -19,7 +19,7 @@
     <button id="btnSolar">🕶️ Óculos Solar</button>
   </div>
 
-  <!-- Three.js + GLTFLoader via script normal -->
+  <!-- Versão não modular do Three.js -->
   <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/loaders/GLTFLoader.js"></script>
 
@@ -49,22 +49,3 @@
       loader.load(modelFile, function(gltf) {
         glassesModel = gltf.scene;
         glassesModel.scale.set(1,1,1);
-        scene.add(glassesModel);
-      }, undefined, function(error){
-        console.error('Erro ao carregar modelo:', error);
-      });
-    }
-
-    function animate() {
-      requestAnimationFrame(animate);
-      if (glassesModel) glassesModel.rotation.y += 0.01;
-      renderer.render(scene, camera);
-    }
-
-    initThree();
-
-    document.getElementById('btnKid').onclick = () => setGlasses('OculosKid1.glb');
-    document.getElementById('btnSolar').onclick = () => setGlasses('OculosSoLarl1.glb');
-  </script>
-</body>
-</html>
